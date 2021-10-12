@@ -19,7 +19,7 @@ const UnouProfile: React.VFC = () => {
   const Sectiontitle = () => {
     if (ctx.width > 1024) {
       return (
-        <div className={styles.sectionTitleBox}>
+        <div className={`${styles.sectionTitleBox} ${styles.profileVerticalTitle}`}>
           <SectionTitleVertical title={'Profile'} />
         </div>
       );
