@@ -1,6 +1,6 @@
 ---
-title: 'MD TEST 1'
-date: '2021-08-24'
+title: 'テストです'
+date: '2021-08-30'
 excerpt: 'this is excerpt text'
 coverImage: '*'
 categories: ['graphic']
