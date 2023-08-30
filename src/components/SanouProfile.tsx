@@ -152,6 +152,13 @@ const SanouProfile = () => {
               <dl className={styles.body}>
                 下記 Contact formからお願いします
               </dl>
+              <dt className={styles.label}>取引実績<br>敬称略</dt>
+              <dl className={styles.body}>
+                ＜デザイン、イラスト＞<br>
+                日本電気株式会社、株式会社市進ラボ、一般社団法人生涯健康社会推進機構（東急不動産ホールディングスが立上げた社団法人）、株式会社流山ツーリズムデザイン、株式会社Hack Camp、株式会社新閃力、一般社団法人 コードフォージャパン、流山市※、株式会社文藝春秋※　他<br>
+                ※会社としてではなく、個人としての取引実績<br><br>
+                ＜講師＞<br>日本電子専門学校、株式会社市進ラボ　他
+              </dl>
             </dl>
             {/*
               <div className={styles.settlement}>
