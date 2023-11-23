@@ -7,11 +7,11 @@ import { useEffect, useState } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
 import Contact from '@/components/Contact';
 import Categories from '@/components/common/Categories';
-import { sanouPortfolioBreadcrumb } from 'domains/sanou';
+import { sanouPortfolioBreadcrumb } from 'constants/sanouPortfolioBreadcrumb';
 import { MarkdownFileData } from 'models/';
 import styles from 'styles/modules/PortfolioPage.module.scss';
 
-const PortfolioPage: React.VFC<MarkdownFileData> = (props) => {
+const PortfolioPage: React.FC<MarkdownFileData> = (props) => {
   const [breadcrumbList, setBreadcrumbList] = useState(
     sanouPortfolioBreadcrumb,
   );

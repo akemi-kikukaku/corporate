@@ -1,14 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { WorkCategories } from 'models';
 import styles from 'styles/modules/Menu.module.scss';
 
 interface Props {
   selectedItem: string;
-  items: WorkCategories[];
+  items: Readonly<WorkCategories[]>;
   onClick: (category: string) => void; // eslint-disable-line
 }
 
-const Menu: React.VFC<Props> = (props) => {
+const Menu: React.FC<Props> = (props) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -27,18 +27,43 @@ const Menu: React.VFC<Props> = (props) => {
   return (
     <ul ref={ref} id='menuBox' className={styles.itemBox}>
       {props.items.map((item, index) => (
-        <li
+        <ItemBlock
+          name={item.name}
+          type={item.type}
+          selectedItem={props.selectedItem}
           key={index}
-          className={`${styles.item} menuItem ${
-            item.type === props.selectedItem && styles.isActive
-          }`}
-          onClick={() => props.onClick(item.type)}
-        >
-          {item.name}
-        </li>
+          onClick={props.onClick}
+        />
       ))}
     </ul>
   );
 };
 
 export default Menu;
+
+type ItemBlockProps = {
+  name: string;
+  type: string;
+  selectedItem: string;
+  onClick: (type: string) => void // eslint-disable-line
+}
+const ItemBlock: React.FC<ItemBlockProps> = ({
+  name,
+  type,
+  selectedItem,
+  onClick
+}) => {
+  const handleClick = useCallback(() => {
+    onClick(type);
+  }, [onClick, type]);
+  return (
+    <li
+      className={`${styles.item} menuItem ${
+        type === selectedItem && styles.isActive
+      }`}
+      onClick={handleClick}
+    >
+      {name}
+    </li>
+  );
+};

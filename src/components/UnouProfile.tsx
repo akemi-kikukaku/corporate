@@ -8,7 +8,7 @@ import instaIcon from 'images/instagram.svg';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/UnouProfile.module.scss';
 
-const UnouProfile: React.VFC = () => {
+const UnouProfile: React.FC = () => {
   const ctx = useContext(ContextData);
 
   const [contentRef, inView] = useInView({

@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import TextLink from './common/TextLink';
 import styles from 'styles/modules/PriceList.module.scss';
 
-const PriceList: React.VFC = () => {
+const PriceList: React.FC = () => {
   const [contentRef, inView] = useInView({
     rootMargin: '-150px 0px',
     triggerOnce: true,

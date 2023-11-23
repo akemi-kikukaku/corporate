@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useContext, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Categories from './common/Categories';
+import { isBelowMd } from 'logics/isMatchTargetDevice';
 import { MarkdownFileData } from 'models/';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/PortfolioList.module.scss';
@@ -12,7 +13,7 @@ interface Props {
   isPage?: boolean;
 }
 
-const PortfolioList: React.VFC<Props> = ({ items, isPage }) => {
+const PortfolioList: React.FC<Props> = ({ items, isPage }) => {
   const router = useRouter();
   const ctx = useContext(ContextData);
   const [isMin, setIsMin] = useState(false);
@@ -28,7 +29,7 @@ const PortfolioList: React.VFC<Props> = ({ items, isPage }) => {
   });
 
   useEffect(() => {
-    if (ctx.width <= 1024) {
+    if (isBelowMd(ctx.width)) {
       const sectionWidth = ctx.width * 0.9;
       const workBoxWidth = sectionWidth * 0.46;
       setIsMin(workBoxWidth <= 300);
@@ -38,12 +39,12 @@ const PortfolioList: React.VFC<Props> = ({ items, isPage }) => {
   }, [ctx.width]);
 
   useEffect(() => {
-    !isPage
-      ? setMaxLength(items.length)
-      : isMin
-      ? setMaxLength(6)
-      : setMaxLength(3);
-  }, [isPage, items.length, isMin]);
+    if (isPage) {
+      setMaxLength(items.length);
+      return;
+    }
+    !isBelowMd(ctx.width) ? setMaxLength(9) : setMaxLength(6);
+  }, [isPage, items.length, ctx.width]);
 
   useEffect(() => {
     if (isPage) {

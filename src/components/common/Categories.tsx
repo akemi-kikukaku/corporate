@@ -4,7 +4,7 @@ interface Props {
   categories: string[];
 }
 
-const Categories: React.VFC<Props> = (props) => {
+const Categories: React.FC<Props> = (props) => {
   return (
     <ul className={styles.workCategoryBox}>
       {props.categories.map((cacategory, i) => (

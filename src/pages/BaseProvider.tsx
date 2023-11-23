@@ -33,7 +33,7 @@ export const ContextData = createContext<InitialData>(
   {} as InitialData,
 );
 
-const BaseProvider: React.VFC<Props> = ({ children }) => {
+const BaseProvider: React.FC<Props> = ({ children }) => {
   const router = useRouter();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [ctxData, setContextDate] = useState({

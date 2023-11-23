@@ -2,16 +2,17 @@ import { ReactNode, useContext } from 'react';
 import { useInView } from 'react-intersection-observer';
 import SectionTitle from './common/SectionTitle';
 import SectionTitleVertical from './common/SectionTitleVertical';
+import { isBelowMd } from 'logics/isMatchTargetDevice';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/PageSecondSection.module.scss';
 interface Props {
   children: ReactNode;
 }
 
-const PageSecondSection: React.VFC<Props> = ({ children }) => {
+const PageSecondSection: React.FC<Props> = ({ children }) => {
   const ctx = useContext(ContextData);
   const isSanou = ctx.isSanou;
-  const isMd = ctx.width <= 1024;
+  const isMd = isBelowMd(ctx.width);
 
   const sectionTitleText = isSanou ? 'About' : 'News';
 

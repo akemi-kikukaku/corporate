@@ -19,6 +19,10 @@
     background-color: $grey-main;
     color: $white;
 
+    @include mq(sm) {
+      padding: 16px;
+    }
+
     @include mq(lg) {
       display: flex;
       padding: 0 24px 40px 40px;
@@ -241,9 +245,11 @@
     line-height: 1.7;
     display: inline-block;
     vertical-align: top;
+    font-size: 14px;
 
     @include mq(md) {
       width: 130px;
+      font-size: 16px;
     }
 
     &:last-of-type {
@@ -253,10 +259,16 @@
 
   .body {
     margin-bottom: 12px;
-    width: calc(100% - 130px);
+    width: calc(100% - 110px);;
     line-height: 1.7;
     display: inline-block;
     vertical-align: top;
+    font-size: 14px;
+
+    @include mq(md) {
+      width: calc(100% - 130px);
+      font-size: 16px;
+    }
 
     &:last-of-type {
       margin-bottom: 0;

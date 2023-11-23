@@ -9,7 +9,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import Contact from '@/components/Contact';
 import ArrowLinkNormal from '@/components/common/ArrowLinkNormal';
 import SectionTitle from '@/components/common/SectionTitle';
-import { newsBreadcrumb } from 'domains/unou';
+import { newsBreadcrumb } from 'constants/newsBreadcrumb';
 import { MarkdownFileData } from 'models/';
 import styles from 'styles/modules/News.module.scss';
 
@@ -17,7 +17,7 @@ interface Props {
   news: MarkdownFileData[];
 }
 
-const News: React.VFC<Props> = ({ news }) => {
+const News: React.FC<Props> = ({ news }) => {
   const router = useRouter();
   const [hoveredItem, setIsHoverdItem] = useState(-1);
 

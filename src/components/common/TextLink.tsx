@@ -8,7 +8,7 @@ interface Props {
   onClick: () => void;
 }
 
-const TextLink: React.VFC<Props> = (props) => {
+const TextLink: React.FC<Props> = (props) => {
   return (
     <div
       className={styles.link}

@@ -2,13 +2,14 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { useInView } from 'react-intersection-observer';
 import SectionTitle from './common/SectionTitle';
+import { isBelowMd, isBelowSm } from 'logics/isMatchTargetDevice';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/Recommendation.module.scss';
 
 const Recommendation = () => {
   const ctx = useContext(ContextData);
-  const isSp = ctx.width < 600;
-  const IsUnderMd = ctx.width <= 1024;
+  const isSp = isBelowSm(ctx.width);
+  const IsUnderMd = isBelowMd(ctx.width);
 
   const [contentRef, inView] = useInView({
     rootMargin: '-150px 0px',

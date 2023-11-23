@@ -5,12 +5,13 @@ import SectionTitle from './common/SectionTitle';
 import SectionTitleVertical from './common/SectionTitleVertical';
 import facebookIcon from 'images/facebook.svg';
 import instaIcon from 'images/instagram.svg';
+import { isBelowMd } from 'logics/isMatchTargetDevice';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/SanouProfile.module.scss';
 
 const SanouProfile = () => {
   const ctx = useContext(ContextData);
-  const isMd = ctx.width <= 1024;
+  const isMd = isBelowMd(ctx.width);
 
   const [contentRef, inView] = useInView({
     rootMargin: '-150px 0px',

@@ -13,7 +13,7 @@ import logoUnou from 'images/logo_unou.svg';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/Header.module.scss';
 
-const Header: React.VFC = () => {
+const Header: React.FC = () => {
   const router = useRouter();
   const ctx = useContext(ContextData);
 

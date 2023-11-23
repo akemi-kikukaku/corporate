@@ -5,7 +5,7 @@ interface Props {
   items: { name: string; path: string }[];
 }
 
-const Breadcrumb: React.VFC<Props> = ({ items }) => {
+const Breadcrumb: React.FC<Props> = ({ items }) => {
   const router = useRouter();
   const lastItemIndex = items.length;
   return (

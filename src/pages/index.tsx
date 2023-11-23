@@ -11,7 +11,7 @@ import rightImg from 'images/top_right.png';
 import rightMdImg from 'images/top_right_md.png';
 import styles from 'styles/modules/Home.module.scss';
 
-export const Home: React.VFC = () => {
+export const Home: React.FC = () => {
   const router = useRouter();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -63,8 +63,7 @@ export const Home: React.VFC = () => {
           content='デザインに関わること、全部できます。相手の話や自分の内なる声に耳を傾ける、徹底的な「聴く」姿勢。聴いた事を咀嚼し、夢ある具体物へと「描く」力。この２つを両輪に、ワンストップで実現のお手伝いをします。'
         />
       </Head>
-      <div className={styles.mainContents}>
-        <div className={styles.contentBottom}>
+      <div className={styles.contentBottom}>
           <h1 className={styles.leadText}>
             どちらを見ますか？
             {windowWidth >= 600}
@@ -102,7 +101,6 @@ export const Home: React.VFC = () => {
           </div>
           <RightImage />
         </div>
-      </div>
     </div>
   );
 };

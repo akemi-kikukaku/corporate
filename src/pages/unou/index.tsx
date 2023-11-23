@@ -4,7 +4,6 @@ import matter from 'gray-matter';
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
-import Image from 'next/image';
 import React, {
   createRef,
   RefObject,
@@ -18,7 +17,6 @@ import PortfolioList from '@/components/PortfolioList';
 import UnouProfile from '@/components/UnouProfile';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
 import SectionTitle from '@/components/common/SectionTitle';
-import topImage from 'images/unou-image.png';
 import { MarkdownFileData } from 'models/';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/Unou.module.scss';
@@ -28,7 +26,7 @@ interface Props {
   news: MarkdownFileData[];
 }
 
-const Unou: React.VFC<Props> = ({ articles, news }) => {
+const Unou: React.FC<Props> = ({ articles, news }) => {
   const ctx = useContext(ContextData);
   const router = useRouter();
 
@@ -100,9 +98,7 @@ const Unou: React.VFC<Props> = ({ articles, news }) => {
           content='デザインに関わること、全部できます。相手の話や自分の内なる声に耳を傾ける、徹底的な「聴く」姿勢。聴いた事を咀嚼し、夢ある具体物へと「描く」力。この２つを両輪に、ワンストップで実現のお手伝いをします。'
         />
       </Head>
-      <div className={`${styles.topImage} a-nop`} ref={homeRef}>
-        <Image src={topImage} alt={'トップイメージ'} />
-      </div>
+      <div className={`${styles.topImage} a-nop`} ref={homeRef} />
       <div className={`${styles.newsWrap}`} ref={newsRef}>
         <PageSecondSection>
           <section className='a-nbu'>

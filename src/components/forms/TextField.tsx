@@ -8,7 +8,7 @@ interface Props {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const TextField: React.VFC<Props> = (props) => {
+const TextField: React.FC<Props> = (props) => {
   return (
     <div className={styles.textFieldWrap}>
       <span className={styles.label}>{props.label}</span>
