@@ -1,5 +1,7 @@
 @import '../common';
 @import '../animation';
+@import '../mixin';
+@import '../breakpoint';
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:bold);
 @import url(http://fonts.googleapis.com/css?family=Vollkorn);
 
@@ -22,4 +24,13 @@
 
 .note {
   color: $grey-main;
+}
+
+.spOnlyBox {
+  display: block;
+  height: 40px;
+
+  @include mq(md) {
+    display: none;
+  }
 }

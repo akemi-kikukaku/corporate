@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import leftImg from 'images/top_left.png';
 import leftMdImg from 'images/top_left_md.png';
 import mainImg from 'images/top_main.png';
@@ -54,6 +54,29 @@ export const Home: React.FC = () => {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
+
+  const titleStyles = useMemo(() => {
+    const width = window.innerWidth;
+    if (width >= 600) {
+      return {
+        fontSize: 28,
+        marginBottom: 120,
+        letterSpacing: 0.2
+      };
+    };
+    if (width >= 360) {
+      return {
+        fontSize: 20,
+        marginBottom: 48,
+        letterSpacing: 0.6
+      };
+    };
+    return {
+      fontSize: 18,
+      marginBottom: 36,
+      letterSpacing: 0.5
+    };
+  }, []);
   return (
     <div className={styles.homeWrap}>
       <Head>
@@ -68,7 +91,15 @@ export const Home: React.FC = () => {
       </Head>
       <div className={styles.contentBottom}>
         <div className={styles.leadTextWrap}>
-          <h1 className={styles.leadText}>どちらを見ますか？</h1>
+          <h1
+            className={styles.leadText}
+            style={{
+              fontSize: `${titleStyles.fontSize}px`,
+              marginBottom: `${titleStyles.marginBottom}px`,
+              letterSpacing: `${titleStyles.letterSpacing}rem`
+            }}>
+              どちらを見ますか？
+            </h1>
         </div>
         <div className={styles.controllers}>
           <button

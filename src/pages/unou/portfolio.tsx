@@ -42,6 +42,7 @@ const IllustPortfolio: React.FC<Props> = ({ articles }) => {
   return (
     <>
       <Head>
+        
         <title>
           株式会社聴くと描く | 株式会社聴くと描く |
           流山市のデザイン会社・イラストレーター
@@ -52,8 +53,9 @@ const IllustPortfolio: React.FC<Props> = ({ articles }) => {
         />
       </Head>
       <Breadcrumb items={portfolioBreadcrumb} />
+      <div className={`${styles.spOnlyBox}`} />
       <SectionTitle title={'Portfolio'} />
-      <section className={`${styles.workWrap} a-nbu`}>
+      <section className={`${styles.workWrap} ${styles.menuWrap} a-nbu`}>
         <Menu
           selectedItem={selectedItem}
           items={unouPortfolioCategories}

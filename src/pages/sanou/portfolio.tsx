@@ -51,6 +51,7 @@ const IllustPortfolio: React.FC<Props> = ({ articles }) => {
         />
       </Head>
       <Breadcrumb items={sanouPortfolioBreadcrumb} />
+      <div className={`${styles.spOnlyBox}`} />
       <SectionTitle title={'Portfolio'} />
       <section className={`${styles.workWrap} ${styles.menuWrap}`}>
         <Menu
