@@ -1,6 +1,6 @@
-@import '../common.scss';
-@import '../_breakpoint';
-@import '../_mixin';
+@import '../common';
+@import '../breakpoint';
+@import '../mixin';
 @import '../animation';
 
 .aaa {
@@ -20,22 +20,18 @@
   animation-delay: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-
-  & > div {
-    vertical-align: top;
-    height: 100%;
-
-    img {
-      object-fit: cover;
-    }
-  }
+  overflow: hidden;
+  background-image: url('../../images/unou-image.png');
+  background-size: cover;
+  background-position: center;
 
   @include mq(sm) {
-    height: 90vh;
+    height: 90dvh;
   }
 
   @include mq(md) {
     height: auto;
+    height: 70dvh;
   }
 }
 

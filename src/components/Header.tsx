@@ -6,14 +6,16 @@ import Sidebar from './Sidebar';
 import ArrowLink from './common/ArrowLink';
 import Icon from './common/Icon';
 import TextLink from './common/TextLink';
+import { WINDOW_WIDTH_TIPE } from 'constants/windowWidthType';
 import facebookIcon from 'images/facebook.svg';
 import instaIcon from 'images/instagram.svg';
 import logoBase from 'images/kikutokaku_logo.svg';
 import logoUnou from 'images/logo_unou.svg';
+import isMatchTargetDevice from 'logics/isMatchTargetDevice';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/Header.module.scss';
 
-const Header: React.VFC = () => {
+const Header: React.FC = () => {
   const router = useRouter();
   const ctx = useContext(ContextData);
 
@@ -90,7 +92,7 @@ const Header: React.VFC = () => {
         <div className={styles.logo} onClick={goToHome}>
           <Image src={ctx.isUnou ? logoUnou : logoBase} alt='ロゴ' />
         </div>
-        {ctx.isUnou && ctx.width > 1024 && (
+        {ctx.isUnou && isMatchTargetDevice(ctx.width, WINDOW_WIDTH_TIPE.lg) && (
           <div className={styles.controllers}>
             <TextLink
               text={'News'}

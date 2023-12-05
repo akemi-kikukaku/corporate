@@ -7,7 +7,7 @@ interface Props {
   onClick: () => void;
 }
 
-const ArrowLinkNormal: React.VFC<Props> = (props) => {
+const ArrowLinkNormal: React.FC<Props> = (props) => {
   return (
     <div className={styles.arrowLinkBox}>
       <span

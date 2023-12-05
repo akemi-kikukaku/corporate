@@ -27,6 +27,7 @@ import MeritTitle from 'images/merit_title.svg';
 import MeritTitleSp from 'images/merit_title_sp.svg';
 import topImage from 'images/sanou_top_image.svg';
 import topImageSp from 'images/sanou_top_image_sp.svg';
+import { isBelowSm } from 'logics/isMatchTargetDevice';
 import { MarkdownFileData } from 'models/';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/Sanou.module.scss';
@@ -35,11 +36,11 @@ interface Props {
   articles: MarkdownFileData[];
 }
 
-const Sanou: React.VFC<Props> = ({ articles }) => {
+const Sanou: React.FC<Props> = ({ articles }) => {
   const ctx = useContext(ContextData);
   const router = useRouter();
 
-  const isSp = ctx.width < 600;
+  const isSp = isBelowSm(ctx.width);
 
   const [meritTitleRef, inView] = useInView({
     rootMargin: '-150px 0px',
@@ -136,11 +137,13 @@ const Sanou: React.VFC<Props> = ({ articles }) => {
       </Head>
       <div className={styles.topImage} ref={homeRef}>
         <h1 className={styles.topCopy}>
-          <span className={styles.topText1}>よく</span>
-          <span className={styles.topText2}>聴き</span>
-          <br />
-          <span className={styles.topText3}>よく</span>
-          <span className={styles.topText4}>描く</span>
+          <div className={styles.textWrap}>
+            <span className={styles.topText1}>よく</span>
+            <span className={styles.topText2}>聴き</span>
+            <br />
+            <span className={styles.topText3}>よく</span>
+            <span className={styles.topText4}>描く</span>
+          </div>
           <div className={styles.topImageBox}>
             {isSp ? (
               <Image src={topImageSp} alt={'トップイメージ'} />

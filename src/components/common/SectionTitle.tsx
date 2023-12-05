@@ -7,7 +7,7 @@ interface Props {
   subTitle?: string;
 }
 
-const SectionTitle: React.VFC<Props> = (props) => {
+const SectionTitle: React.FC<Props> = (props) => {
   const isCenter = props.side === 'center';
   const isLeft = props.side === 'left';
 

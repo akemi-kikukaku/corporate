@@ -8,8 +8,8 @@ import Breadcrumb from '@/components/Breadcrumb';
 import Menu from '@/components/Menu';
 import PortfolioList from '@/components/PortfolioList';
 import SectionTitle from '@/components/common/SectionTitle';
-import { unouPortfolioCategories } from 'domains/unou';
-import { portfolioBreadcrumb } from 'domains/unou';
+import { portfolioBreadcrumb } from 'constants/portfolioBreadcrumb';
+import { unouPortfolioCategories } from 'constants/unouPortfolioCategories';
 import { MarkdownFileData } from 'models/';
 import styles from 'styles/modules/Illusts.module.scss';
 
@@ -17,7 +17,7 @@ interface Props {
   articles: MarkdownFileData[];
 }
 
-const IllustPortfolio: React.VFC<Props> = ({ articles }) => {
+const IllustPortfolio: React.FC<Props> = ({ articles }) => {
   const [works, setWorks] = useState(articles);
   const [selectedItem, setSelectedItem] = useState('all');
 
@@ -42,6 +42,7 @@ const IllustPortfolio: React.VFC<Props> = ({ articles }) => {
   return (
     <>
       <Head>
+        
         <title>
           株式会社聴くと描く | 株式会社聴くと描く |
           流山市のデザイン会社・イラストレーター
@@ -52,8 +53,9 @@ const IllustPortfolio: React.VFC<Props> = ({ articles }) => {
         />
       </Head>
       <Breadcrumb items={portfolioBreadcrumb} />
+      <div className={`${styles.spOnlyBox}`} />
       <SectionTitle title={'Portfolio'} />
-      <section className={`${styles.workWrap} a-nbu`}>
+      <section className={`${styles.workWrap} ${styles.menuWrap} a-nbu`}>
         <Menu
           selectedItem={selectedItem}
           items={unouPortfolioCategories}
@@ -61,7 +63,7 @@ const IllustPortfolio: React.VFC<Props> = ({ articles }) => {
         />
       </section>
       <section className={`${styles.works} a-nbu`}>
-        <PortfolioList items={works} isPage={true} />
+        <PortfolioList items={works} isPage />
         <p className={styles.note}>
           ※
           公開している事例はごく一部です。より詳しい事例は直接お問い合わせください。
@@ -83,8 +85,11 @@ export const getStaticProps: GetStaticProps = async () => {
     const { data: frontmatter, content } = matter(markdownWithMeta);
     return { slug, frontmatter, content };
   });
+  const orderedArticles = articles.sort((a, b) => {
+    return a.frontmatter.date > b.frontmatter.date ? -1 : 1;
+  });
 
-  return { props: { articles } };
+  return { props: { articles: orderedArticles } };
 };
 
 export default IllustPortfolio;

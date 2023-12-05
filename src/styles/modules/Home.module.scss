@@ -1,6 +1,6 @@
-@import '../common.scss';
-@import '../_breakpoint';
-@import '../_mixin';
+@import '../common';
+@import '../breakpoint';
+@import '../mixin';
 @import '../animation';
 
 .homeWrap {
@@ -8,7 +8,7 @@
   position: relative;
 
   @include mq(sm) {
-    height: calc(100vh - 74px);
+    height: calc(100dvh - 74px);
     width: 100%;
   }
 
@@ -21,6 +21,10 @@
     overflow: visible;
     width: 460px;
   }
+}
+
+.leadTextWrap {
+  display: flex;
 }
 
 .leadText {
@@ -76,9 +80,11 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
+  overflow: hidden;
 
   @include mq(md) {
     width: 464px;
+    overflow: visible;
   }
 }
 
@@ -94,7 +100,7 @@
   @include mq(sm) {
     justify-content: space-around;
     margin: 0 auto;
-    width: 74%;
+    width: 85%;
   }
 
   @include mq(md) {

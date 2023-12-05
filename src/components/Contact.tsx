@@ -14,7 +14,7 @@ import check from 'images/check-circle.svg';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/Contact.module.scss';
 
-const Contact: React.VFC = () => {
+const Contact: React.FC = () => {
   const ctx = useContext(ContextData);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');

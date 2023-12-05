@@ -7,12 +7,15 @@ import MeritImage01 from 'images/merit_01.png';
 import MeritImage02 from 'images/merit_02.png';
 import MeritImage03 from 'images/merit_03.png';
 import MeritImage04 from 'images/merit_04.png';
+import { isBelowSm } from 'logics/isMatchTargetDevice';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/Merits.module.scss';
 
 const Merits = () => {
   const ctx = useContext(ContextData);
   const router = useRouter();
+
+  const isSm = isBelowSm(ctx.width);
 
   const [point1Ref, inView1] = useInView({
     rootMargin: '-50px 0px',
@@ -52,7 +55,7 @@ const Merits = () => {
                 </span>
               </>
             )}
-            {ctx.width < 600 && (
+            {isSm && (
               <>
                 <span className={styles.meritTitleText}>
                   デザインに
@@ -105,7 +108,7 @@ const Merits = () => {
                 </span>
               </>
             )}
-            {ctx.width < 600 && (
+            {isSm && (
               <>
                 <span className={styles.meritTitleText}>
                   モヤっとした
@@ -154,7 +157,7 @@ const Merits = () => {
                 </span>
               </>
             )}
-            {ctx.width < 600 && (
+            {isSm && (
               <>
                 <span className={styles.meritTitleText}>
                   「なんとなく
@@ -213,7 +216,7 @@ const Merits = () => {
                 </span>
               </>
             )}
-            {ctx.width < 600 && (
+            {isSm && (
               <>
                 <span className={styles.meritTitleText}>
                   アートとデザイン

@@ -8,7 +8,7 @@ interface Props {
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const TextArea: React.VFC<Props> = (props) => {
+const TextArea: React.FC<Props> = (props) => {
   return (
     <div className={styles.textAreaWrap}>
       <span className={styles.label}>{props.label}</span>

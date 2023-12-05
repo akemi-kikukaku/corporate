@@ -3,14 +3,16 @@ import { useInView } from 'react-intersection-observer';
 import Icon from './common/Icon';
 import SectionTitle from './common/SectionTitle';
 import SectionTitleVertical from './common/SectionTitleVertical';
+import { WINDOW_WIDTH_TIPE } from 'constants/windowWidthType';
 import facebookIcon from 'images/facebook.svg';
 import instaIcon from 'images/instagram.svg';
+import isMatchTargetDevice from 'logics/isMatchTargetDevice';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/SanouProfile.module.scss';
 
 const SanouProfile = () => {
   const ctx = useContext(ContextData);
-  const isMd = ctx.width <= 1024;
+  const isPc = isMatchTargetDevice(ctx.width, WINDOW_WIDTH_TIPE.lg);
 
   const [contentRef, inView] = useInView({
     rootMargin: '-150px 0px',
@@ -18,7 +20,7 @@ const SanouProfile = () => {
   });
 
   const Sectiontitle = () => {
-    if (ctx.width > 1024) {
+    if (isPc) {
       return (
         <div className={styles.sectionTitleBox}>
           <SectionTitleVertical title={'Profile'} />
@@ -122,7 +124,7 @@ const SanouProfile = () => {
         </div>
       </div>
       <div className={`${styles.profileBox} ${styles.companyInfo}`}>
-        {!isMd && (
+        {isPc && (
           <div className={styles.sectionTitleBox}>
             <SectionTitleVertical title={'　'} isWhite={true} />
           </div>

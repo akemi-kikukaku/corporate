@@ -9,7 +9,7 @@ interface Props {
   isHighMargin?: boolean;
 }
 
-const SectionTitleVertical: React.VFC<Props> = (props) => {
+const SectionTitleVertical: React.FC<Props> = (props) => {
   const [titleRef, inView] = useInView({
     rootMargin: '-150px 0px',
     triggerOnce: true,

@@ -13,7 +13,7 @@ interface Props {
   close: () => void;
 }
 
-const Sidebar: React.VFC<Props> = (props) => {
+const Sidebar: React.FC<Props> = (props) => {
   const ctx = useContext(ContextData);
   const router = useRouter();
 

@@ -1,10 +1,10 @@
-@import '../common.scss';
+@import '../common';
 @import '../animation';
-@import '../_breakpoint';
-@import '../_mixin';
+@import '../breakpoint';
+@import '../mixin';
 
 .titleWrap {
-  display: inline-block;
+  display: grid;
   height: 100%;
   margin-right: 40px;
   position: relative;

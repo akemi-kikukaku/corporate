@@ -1,6 +1,6 @@
-@import '../common.scss';
-@import '../_breakpoint';
-@import '../_mixin';
+@import '../common';
+@import '../breakpoint';
+@import '../mixin';
 
 .sidebarWrap {
   width: 340px;
@@ -81,14 +81,14 @@
 }
 
 .listWrap {
-  height: calc(100vh - 60px);
+  height: calc(100dvh - 60px);
   padding: 0 40px;
   color: $white;
   font-size: 24px;
   overflow: auto;
 
   @include mq(lg) {
-    height: calc(100vh - 74px);
+    height: calc(100dvh - 74px);
   }
 
   .listItem {

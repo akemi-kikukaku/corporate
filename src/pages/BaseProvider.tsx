@@ -7,8 +7,6 @@ import {
   useEffect,
   useState,
 } from 'react';
-import Header from '@/components/Header';
-import PageTopLink from '@/components/common/PageTopLink';
 
 interface Props {
   children: ReactNode;
@@ -33,7 +31,7 @@ export const ContextData = createContext<InitialData>(
   {} as InitialData,
 );
 
-const BaseProvider: React.VFC<Props> = ({ children }) => {
+const BaseProvider: React.FC<Props> = ({ children }) => {
   const router = useRouter();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [ctxData, setContextDate] = useState({
@@ -66,9 +64,7 @@ const BaseProvider: React.VFC<Props> = ({ children }) => {
 
   return (
     <ContextData.Provider value={{ ...ctxData, setContextDate }}>
-      <Header />
       {children}
-      <PageTopLink text={'Page Top'} onClick={() => alert('top')} />
     </ContextData.Provider>
   );
 };

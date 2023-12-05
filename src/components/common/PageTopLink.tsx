@@ -6,7 +6,7 @@ interface Props {
   onClick: () => void;
 }
 
-const PageTopLink: React.VFC<Props> = (props) => {
+const PageTopLink: React.FC<Props> = (props) => {
   const [isButtonActive, setIsButtonActive] = useState(false);
   const returnTop = () => {
     window.scrollTo({

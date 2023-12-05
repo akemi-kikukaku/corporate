@@ -2,10 +2,10 @@ import Head from 'next/head';
 import Breadcrumb from '@/components/Breadcrumb';
 import Contact from '@/components/Contact';
 import SectionTitle from '@/components/common/SectionTitle';
-import { settlementBreadcrumb } from 'domains/sanou';
+import { settlementBreadcrumb } from 'constants/settlementBreadcrumb';
 import styles from 'styles/modules/Settlement.module.scss';
 
-const Settlement: React.VFC = () => {
+const Settlement: React.FC = () => {
   return (
     <>
       <Head>

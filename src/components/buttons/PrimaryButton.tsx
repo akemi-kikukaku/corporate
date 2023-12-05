@@ -6,7 +6,7 @@ interface Props {
   onClick: (event?: Event) => void; // eslint-disable-line
 }
 
-const PrimaryButton: React.VFC<Props> = (props) => {
+const PrimaryButton: React.FC<Props> = (props) => {
   return (
     <button
       className={`${styles.button} ${

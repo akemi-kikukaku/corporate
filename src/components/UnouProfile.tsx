@@ -3,12 +3,14 @@ import { useInView } from 'react-intersection-observer';
 import Icon from './common/Icon';
 import SectionTitle from './common/SectionTitle';
 import SectionTitleVertical from './common/SectionTitleVertical';
+import { WINDOW_WIDTH_TIPE } from 'constants/windowWidthType';
 import facebookIcon from 'images/facebook.svg';
 import instaIcon from 'images/instagram.svg';
+import isMatchTargetDevice, { isBelowMd } from 'logics/isMatchTargetDevice';
 import { ContextData } from 'pages/BaseProvider';
 import styles from 'styles/modules/UnouProfile.module.scss';
 
-const UnouProfile: React.VFC = () => {
+const UnouProfile: React.FC = () => {
   const ctx = useContext(ContextData);
 
   const [contentRef, inView] = useInView({
@@ -17,7 +19,7 @@ const UnouProfile: React.VFC = () => {
   });
 
   const Sectiontitle = () => {
-    if (ctx.width > 1024) {
+    if (isMatchTargetDevice(ctx.width, WINDOW_WIDTH_TIPE.lg)) {
       return (
         <div className={styles.sectionTitleBox}>
           <SectionTitleVertical title={'Profile'} />
@@ -28,7 +30,7 @@ const UnouProfile: React.VFC = () => {
     }
   };
   const isMinWidth = () => {
-    if (ctx.width <= 1024) {
+    if (isBelowMd(ctx.width)) {
       const sectionWidth = ctx.width * 0.9;
       const marginWidth = 32 + 32;
       const workBoxWidth = sectionWidth - (310 + marginWidth);

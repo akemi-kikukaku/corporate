@@ -1,21 +1,22 @@
 @import '../animation';
-@import '../common.scss';
+@import '../common';
 @import '../breakpoint';
 @import '../mixin';
 
 .topImage {
-  height: calc(100vh - 74px);
+  height: calc(100dvh - 60px);
   overflow: hidden;
   -webkit-transform: translateZ(0);
   -webkit-perspective: 1000;
   -webkit-backface-visibility: hidden;
+  position: relative;
 
   @include mq(md) {
     height: 700px;
   }
 
   @include mq(lg) {
-    height: calc(100vh - 74px);
+    height: calc(100dvh - 74px);
   }
 }
 
@@ -31,6 +32,21 @@
   -webkit-transform: translateZ(0);
   -webkit-perspective: 1000;
   -webkit-backface-visibility: hidden;
+
+  @include mq(sm) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+.textWrap {
+  margin-top: -32px;
+
+  @include mq(md) {
+    margin-top: 0
+  }
 }
 
 .topText1 {
@@ -96,13 +112,12 @@
   -webkit-backface-visibility: hidden;
 
   @include mq(sm) {
-    transform: translate(-40%, 0) scale(3.5);
-    width: 100%;
+    transform: translate(-50%, -2%) scale(1);
+    width: auto;
   }
 
   @include mq(md) {
     transform: translate(-40%, 0) scale(1);
-    width: auto;
   }
 }
 
